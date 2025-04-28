@@ -133,19 +133,6 @@ EOF
 # Создать конфигурацию nginx
 cat > ~/nginx-le/etc/service.conf << 'EOF'
 server {
-    listen 80;
-    server_name LE_FQDN;
-
-    location /.well-known/ {
-       root /usr/share/nginx/html;
-    }
-
-    location / {
-        return 301 https://$host$request_uri;
-    }
-}
-
-server {
     listen 443 ssl http2;
     server_name LE_FQDN;
 
